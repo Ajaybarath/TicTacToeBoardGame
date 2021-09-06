@@ -49,6 +49,8 @@ public class TicTacToeGame {
 			}
 			ticTacToe.printBoard();
 		}
+		
+		System.out.println(ticTacToe.checkStatus() + " won the game");
 
 	}
 
@@ -58,9 +60,20 @@ public class TicTacToeGame {
 		if (position == 0) {
 			position = opponentWiningPosition();
 		}
+
+		if (position == 0) {
+			if (board[1] == ' ')
+				position = 1;
+			else if (board[3] == ' ')
+				position = 3;
+			else if (board[7] == ' ')
+				position = 7;
+			else if (board[9] == ' ')
+				position = 9;
+		}
 		play(position, 0);
 	}
-	
+
 	private int opponentWiningPosition() {
 		if (board[1] == board[2] && board[3] == ' ' && board[1] == player) {
 			return 3;
@@ -141,7 +154,7 @@ public class TicTacToeGame {
 		if (board[3] == board[7] && board[5] == ' ' && board[3] == player) {
 			return 5;
 		}
-		
+
 		return 0;
 	}
 
