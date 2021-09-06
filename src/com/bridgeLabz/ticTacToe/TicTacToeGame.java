@@ -35,7 +35,7 @@ public class TicTacToeGame {
 			System.out.println("Oooh! computer will start the game");
 		}
 
-		while (ticTacToe.checkStatus() == ' ') {
+		while (ticTacToe.checkStatus() == ' ' && ticTacToe.isBoardEmpty()) {
 
 			if (turn == 1) {
 				System.out.println("Enter your position to play");
@@ -49,9 +49,17 @@ public class TicTacToeGame {
 			}
 			ticTacToe.printBoard();
 		}
-		
+
 		System.out.println(ticTacToe.checkStatus() + " won the game");
 
+	}
+
+	private boolean isBoardEmpty() {
+		for (int i = 1; i < 10; i++) {
+			if (board[i] == ' ')
+				return true;
+		}
+		return false;
 	}
 
 	void computerPlay() {
@@ -289,7 +297,7 @@ public class TicTacToeGame {
 			return board[9];
 		}
 
-		else if (board[3] == board[4] && board[5] == board[7] && board[7] != ' ') {
+		else if (board[3] == board[5] && board[5] == board[7] && board[7] != ' ') {
 			return board[7];
 		}
 
