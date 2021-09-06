@@ -31,11 +31,18 @@ public class TicTacToeGame {
 
 	void play(int position, int turn ) {
 		
-		if (turn == 0) {
-			board[position] = player;
-		} else {
-			board[position] = computer;
+		if (board[position] == ' ' && position < 10) {
+			if (turn == 0) {
+				board[position] = player;
+			} else {
+				board[position] = computer;
+			}
 		}
+		else {
+			System.out.println("choose a valid position");
+		}
+		
+		
 	}
 
 	char checkStatus() {
