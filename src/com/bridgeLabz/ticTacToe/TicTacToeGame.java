@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class TicTacToeGame {
 	
 	char[][] board;
+	char player = 'X';
+	char computer = 'O';
 	
 	public TicTacToeGame() {
 		board = new char[3][3];
@@ -19,13 +21,10 @@ public class TicTacToeGame {
 	public static void main(String args[]) {
 		TicTacToeGame ticTacToe = new TicTacToeGame();
 		Scanner s = new Scanner(System.in);
-		
-		System.out.println("Enter your position player 1");
-		ticTacToe.play(s.nextInt(), s.nextInt(), 1);
-		
-		System.out.println("Enter your position player 2");
-		ticTacToe.play(s.nextInt(), s.nextInt(), 2);
-		
+		System.out.println("Enter your symbol");
+		ticTacToe.player = s.next().toUpperCase().charAt(0);
+		ticTacToe.computer = ticTacToe.player == 'X' ? 'O' : 'X';
+
 		ticTacToe.printBoard();
 		
 	}
@@ -71,7 +70,7 @@ public class TicTacToeGame {
 		for (int i=0;i<3;i++) {
 			for (int j=0;j<3;j++) {
 				if (board[i][j] == ' ')
-					System.out.print(" ");
+					System.out.print("_");
 				System.out.print(board[i][j] + " ");
 			}
 			System.out.println();
