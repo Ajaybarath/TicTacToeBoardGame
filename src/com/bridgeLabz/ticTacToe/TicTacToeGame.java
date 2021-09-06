@@ -24,25 +24,31 @@ public class TicTacToeGame {
 		ticTacToe.computer = ticTacToe.player == 'X' ? 'O' : 'X';
 
 		ticTacToe.printBoard();
-		
-		
+
+		System.out.println("Do you choose heads or tail (1 or 0) to start the game");
+		int toss = s.nextInt();
+		if (Math.floor(Math.random() * 10) % 2 == toss) {
+			System.out.println("Winner! you can start the game");
+		} else {
+			System.out.println("Oooh! computer will start the game");
+		}
+
+
 
 	}
 
-	void play(int position, int turn ) {
-		
+	void play(int position, int turn) {
+
 		if (board[position] == ' ' && position < 10) {
 			if (turn == 0) {
 				board[position] = player;
 			} else {
 				board[position] = computer;
 			}
-		}
-		else {
+		} else {
 			System.out.println("choose a valid position");
 		}
-		
-		
+
 	}
 
 	char checkStatus() {
