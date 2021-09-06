@@ -24,17 +24,17 @@ public class TicTacToeGame {
 		ticTacToe.computer = ticTacToe.player == 'X' ? 'O' : 'X';
 
 		ticTacToe.printBoard();
+		
+		
 
 	}
 
-	void play(int r, int c, int player) {
-		r--;
-		c--;
-
-		if (player == 1) {
-			board[r] = 'X';
+	void play(int position, int turn ) {
+		
+		if (turn == 0) {
+			board[position] = player;
 		} else {
-			board[r] = 'O';
+			board[position] = computer;
 		}
 	}
 
