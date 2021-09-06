@@ -55,7 +55,94 @@ public class TicTacToeGame {
 	void computerPlay() {
 		int position = 0;
 		position = winningPosition();
+		if (position == 0) {
+			position = opponentWiningPosition();
+		}
 		play(position, 0);
+	}
+	
+	private int opponentWiningPosition() {
+		if (board[1] == board[2] && board[3] == ' ' && board[1] == player) {
+			return 3;
+		}
+		if (board[2] == board[3] && board[1] == ' ' && board[2] == player) {
+			return 1;
+		}
+		if (board[1] == board[3] && board[2] == ' ' && board[1] == player) {
+			return 2;
+		}
+
+		if (board[4] == board[5] && board[6] == ' ' && board[4] == player) {
+			return 6;
+		}
+		if (board[6] == board[5] && board[4] == ' ' && board[6] == player) {
+			return 4;
+		}
+		if (board[4] == board[6] && board[5] == ' ' && board[4] == player) {
+			return 5;
+		}
+
+		if (board[7] == board[8] && board[9] == ' ' && board[7] == player) {
+			return 9;
+		}
+		if (board[9] == board[8] && board[7] == ' ' && board[9] == player) {
+			return 7;
+		}
+		if (board[7] == board[9] && board[8] == ' ' && board[7] == player) {
+			return 8;
+		}
+
+		if (board[1] == board[4] && board[7] == ' ' && board[1] == player) {
+			return 7;
+		}
+		if (board[7] == board[4] && board[1] == ' ' && board[7] == player) {
+			return 1;
+		}
+		if (board[1] == board[7] && board[4] == ' ' && board[1] == player) {
+			return 4;
+		}
+
+		if (board[2] == board[5] && board[8] == ' ' && board[2] == player) {
+			return 8;
+		}
+		if (board[8] == board[5] && board[2] == ' ' && board[5] == player) {
+			return 2;
+		}
+		if (board[2] == board[8] && board[5] == ' ' && board[2] == player) {
+			return 5;
+		}
+
+		if (board[3] == board[6] && board[9] == ' ' && board[3] == player) {
+			return 9;
+		}
+		if (board[9] == board[6] && board[3] == ' ' && board[9] == player) {
+			return 3;
+		}
+		if (board[3] == board[9] && board[6] == ' ' && board[3] == player) {
+			return 6;
+		}
+
+		if (board[1] == board[5] && board[9] == ' ' && board[1] == player) {
+			return 9;
+		}
+		if (board[9] == board[5] && board[1] == ' ' && board[9] == player) {
+			return 1;
+		}
+		if (board[1] == board[7] && board[5] == ' ' && board[1] == player) {
+			return 5;
+		}
+
+		if (board[3] == board[4] && board[7] == ' ' && board[3] == player) {
+			return 7;
+		}
+		if (board[5] == board[4] && board[3] == ' ' && board[5] == player) {
+			return 3;
+		}
+		if (board[3] == board[7] && board[5] == ' ' && board[3] == player) {
+			return 5;
+		}
+		
+		return 0;
 	}
 
 	private int winningPosition() {
