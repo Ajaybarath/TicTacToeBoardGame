@@ -17,40 +17,47 @@ public class TicTacToeGame {
 	}
 
 	public static void main(String args[]) {
-		TicTacToeGame ticTacToe = new TicTacToeGame();
-		Scanner s = new Scanner(System.in);
-		System.out.println("Enter your symbol");
-		ticTacToe.player = s.next().toUpperCase().charAt(0);
-		ticTacToe.computer = ticTacToe.player == 'X' ? 'O' : 'X';
+		int continueGame = 1;
 
-		ticTacToe.printBoard();
+		while (continueGame == 1) {
+			TicTacToeGame ticTacToe = new TicTacToeGame();
+			Scanner s = new Scanner(System.in);
+			System.out.println("Enter your symbol");
+			ticTacToe.player = s.next().toUpperCase().charAt(0);
+			ticTacToe.computer = ticTacToe.player == 'X' ? 'O' : 'X';
 
-		System.out.println("Do you choose heads or tail (1 or 0) to start the game");
-		int toss = s.nextInt();
-		int turn = 0;
-		if (Math.floor(Math.random() * 10) % 2 == toss) {
-			System.out.println("Winner! you can start the game");
-			turn = 1;
-		} else {
-			System.out.println("Oooh! computer will start the game");
-		}
-
-		while (ticTacToe.checkStatus() == ' ' && ticTacToe.isBoardEmpty()) {
-
-			if (turn == 1) {
-				System.out.println("Enter your position to play");
-				int position = s.nextInt();
-				ticTacToe.play(position, turn);
-				turn = 0;
-			} else {
-				System.out.println("Computer making a play");
-				ticTacToe.computerPlay();
-				turn = 1;
-			}
 			ticTacToe.printBoard();
-		}
 
-		System.out.println(ticTacToe.checkStatus() + " won the game");
+			System.out.println("Do you choose heads or tail (1 or 0) to start the game");
+			int toss = s.nextInt();
+			int turn = 0;
+			if (Math.floor(Math.random() * 10) % 2 == toss) {
+				System.out.println("Winner! you can start the game");
+				turn = 1;
+			} else {
+				System.out.println("Oooh! computer will start the game");
+			}
+
+			while (ticTacToe.checkStatus() == ' ' && ticTacToe.isBoardEmpty()) {
+
+				if (turn == 1) {
+					System.out.println("Enter your position to play");
+					int position = s.nextInt();
+					ticTacToe.play(position, turn);
+					turn = 0;
+				} else {
+					System.out.println("Computer making a play");
+					ticTacToe.computerPlay();
+					turn = 1;
+				}
+				ticTacToe.printBoard();
+			}
+
+			System.out.println(ticTacToe.checkStatus() + " won the game");
+
+			System.out.println("Do you want to continue the game yes/no (1/0)");
+			continueGame = s.nextInt();
+		}
 
 	}
 
