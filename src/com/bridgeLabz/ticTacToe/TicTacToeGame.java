@@ -33,8 +33,6 @@ public class TicTacToeGame {
 			System.out.println("Oooh! computer will start the game");
 		}
 
-
-
 	}
 
 	void play(int position, int turn) {
@@ -52,23 +50,37 @@ public class TicTacToeGame {
 	}
 
 	char checkStatus() {
-		char winner = ' ';
-		int flag = 0;
-		for (int i = 0; i < 3; i++) {
-			char temp = board[i];
-			flag = 0;
-			for (int j = 0; j < 3; j++) {
-				if (board[i] == temp) {
-					winner = temp;
-				} else {
-					flag = 1;
-					break;
-				}
-			}
+
+		if (board[1] == board[2] && board[2] == board[3]) {
+			return board[0];
 		}
 
-		if (flag == 0) {
-			return winner;
+		else if (board[4] == board[5] && board[5] == board[6]) {
+			return board[6];
+		}
+
+		else if (board[7] == board[8] && board[8] == board[9]) {
+			return board[9];
+		}
+
+		else if (board[1] == board[4] && board[4] == board[7]) {
+			return board[7];
+		}
+
+		else if (board[2] == board[5] && board[5] == board[8]) {
+			return board[8];
+		}
+
+		else if (board[3] == board[6] && board[6] == board[9]) {
+			return board[9];
+		}
+
+		else if (board[1] == board[5] && board[5] == board[9]) {
+			return board[9];
+		}
+
+		else if (board[3] == board[4] && board[5] == board[7]) {
+			return board[7];
 		}
 
 		return ' ';
