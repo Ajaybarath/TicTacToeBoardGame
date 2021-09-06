@@ -70,6 +70,8 @@ public class TicTacToeGame {
 				position = 7;
 			else if (board[9] == ' ')
 				position = 9;
+			else if (board[5] == ' ')
+				position = 5;
 		}
 		play(position, 0);
 	}
